@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Work+Sans:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Album Odyssey</title>
+</head>
+
+<body>
+  <template id="album-art-template">
+    <style>
+      @import url('./reset.css');
+      @import url('./styles.css');
+    </style>
+    <div>
+      <img class="square-aspect-ratio" src="https://component-odyssey.s3.amazonaws.com/romy-melny-nature.jpg"
+        alt="Romy Melny album cover" />
+      <slot name="artist-name"></slot>
+      <slot name="album-name"></slot>
+    </div>
+  </template>
+
+  <template id="frame-template">
+    <style>
+      @import url('./reset.css');
+      @import url('./styles.css');
+
+      :host {
+        display: flex;
+      }
+
+      .frame {
+        filter: drop-shadow(4px 4px 0px var(--black));
+        border: 1px solid var(--black);
+        background: white;
+        padding: 4px;
+      }
+    </style>
+    <div class="frame">
+      <slot></slot>
+    </div>
+  </template>
+
+  <header class="flex-row space-between bg-accent padding-h-4 padding-v-2">
+    <h1 class="title">Album Odyssey</h1>
+    <input class="border-radius" type="search" placeholder="e.g., nirvana nevermind" />
+  </header>
+  <nav class="bg-dark">
+    <ul class="flex-row padding-h-4 text-center">
+      <li class="bg-gray-2 padding-v-2 padding-h-4 vertical-center-align">
+        <a href="">
+          <p>Home</p>
+        </a>
+      </li>
+      <li class="bg-gray-1 padding-v-2 padding-h-4 vertical-center-align">
+        <a href="">
+          <p>Top 40</p>
+        </a>
+      </li>
+      <li class="bg-gray-1 padding-v-2 padding-h-4 vertical-center-align">
+        <a href="">
+          <p>Artists</p>
+        </a>
+      </li>
+      <li class="bg-gray-1 padding-v-2 padding-h-4 vertical-center-align">
+        <a href="">
+          <p>Songs</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main class="padding-h-4 padding-v-2">
+    <h2 class="title">
+      Albums of 2023
+    </h2>
+    <hr />
+
+    <odyssey-frame>
+      <album-art>
+        <h3 slot="artist-name">Romy Melny</h3>
+        <p slot="album-name">Nature</p>
+      </album-art>
+    </odyssey-frame>
+  </main>
+
+  <script>
+    class AlbumArt extends HTMLElement {
+      constructor() {
+        super();
+
+        const template = document.getElementById('album-art-template');
+        const templateContent = template.content;
+
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(templateContent.cloneNode(true));
+      }
+    }
+
+    customElements.define('album-art', AlbumArt);
+  </script>
+
+  <script>
+    class OdysseyFrame extends HTMLElement {
+      constructor() {
+        super();
+
+        const template = document.getElementById('frame-template');
+        const templateContent = template.content;
+
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(templateContent.cloneNode(true));
+      }
+    }
+
+    customElements.define('odyssey-frame', OdysseyFrame);
+  </script>
+</body>
+
+</html>
