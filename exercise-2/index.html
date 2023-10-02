@@ -37,12 +37,16 @@
       @import url('./reset.css');
       @import url('./styles.css');
 
+      :host {
+        display: flex;
+      }
+
       .frame {
         filter: drop-shadow(4px 4px 0px var(--black));
+        border: 1px solid var(--black);
         background: white;
         padding: 4px;
       }
-
     </style>
     <!-- Add your markup here -->
   </template>

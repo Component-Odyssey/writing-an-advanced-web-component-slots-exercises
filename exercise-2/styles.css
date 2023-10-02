@@ -32,7 +32,8 @@ p {
 }
 
 img {
-  width: min(100%, 500px);
+  width: 100%;
+  max-width: 500px
 }
 
 ul {
@@ -128,4 +129,8 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+album-art * {
+  width: fit-content;
 }
