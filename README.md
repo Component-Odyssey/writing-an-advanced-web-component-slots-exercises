@@ -5,7 +5,7 @@ The companion repo to the corresponding lesson from [Component Odyssey](https://
 ## Getting started
 Clone this repo using:
 
-`git clone git@github.com:Component-Odyssey/xxx.git`
+`git clone https://github.com/Component-Odyssey/writing-an-advanced-web-component-slots-exercises.git`
 
 Open the folder in VSCode
 
