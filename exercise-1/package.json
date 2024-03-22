@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "@web/dev-server": "^0.3.0"
+  },
+  "dependencies": {
+    "odyssey-test-utils": "^1.1.1"
   }
 }
