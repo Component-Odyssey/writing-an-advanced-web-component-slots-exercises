@@ -6,5 +6,5 @@ We'll do this by creating a layout component called `odyssey-frame` whose purpos
 
 ## Steps
 
-1. Create the correct markup for `odyssey-template`
-2. Wrap an instance of `odyssey-template` around your `album-art` component
+1. Create the correct markup for `odyssey-frame`
+2. Wrap an instance of `odyssey-frame` around your `album-art` component
